@@ -1,0 +1,13 @@
+﻿
+digraph program_graph {rankdir=LR;node [shape = circle]; qstart; node [shape = doublecircle]; qend; node [shape = circle]qstart->q1[label = "i := 0"];
+q1->q2[label = "x := 0"];
+q2->q3[label = "y := 0"];
+q3->q5[label = "(((n > i) && (A[i] >= 0)) & (!false))"];
+q5->q6[label = "x := (x + A[i])"];
+q6->q7[label = "y := (y + 1)"];
+q7->q3[label = "i := (i + 1)"];
+q3->q11[label = "(((n > i) && (0 > A[i])) & (!(((n > i) && (A[i] >= 0)) | false)))"];
+q11->q3[label = "i := (i + 1)"];
+q3->q4[label = "(!(((n > i) && (0 > A[i])) | (((n > i) && (A[i] >= 0)) | false)))"];
+q4->qend[label = "x := (x + y)"];
+}
